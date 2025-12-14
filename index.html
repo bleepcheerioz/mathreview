@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Rational Expressions: Edgy Survival Mode</title>
+<style>
+body {
+margin: 0;
+font-family: 'Courier New', monospace;
+background: #0b0b0f;
+color: #e6e6eb;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.game {
+width: 90%;
+max-width: 800px;
+background: #151520;
+border: 2px solid #6b6bff;
+border-radius: 12px;
+padding: 20px;
+box-shadow: 0 0 30px rgba(107,107,255,0.3);
+}
+h1 {
+text-align: center;
+color: #9d9dff;
+}
+.stage {
+margin-top: 20px;
+font-size: 1.1em;
+line-height: 1.6;
+}
+.choices button {
+display: block;
+width: 100%;
+margin: 8px 0;
+padding: 10px;
+background: #22223a;
+color: #e6e6eb;
+border: 1px solid #6b6bff;
+border-radius: 8px;
+cursor: pointer;
+}
+.choices button:hover {
+background: #6b6bff;
+color: #0b0b0f;
+}
+.status {
+margin-top: 15px;
+font-style: italic;
+color: #b3b3ff;
+}
+</style>
+</head>
+<body>
+<div class="game">
+<h1>Rational Expressions: Survival Mode</h1>
+<div id="stage" class="stage"></div>
+<div id="choices" class="choices"></div>
+<div id="status" class="status"></div>
+</div>
+
+
+<script>
+const stages = [
+{
+text: "LEVEL 1 — WHAT EVEN IS A RATIONAL EXPRESSION?\n\nA rational expression is a fraction where the numerator or denominator (or both) are POLYNOMIALS. Think: algebra in fraction form.\n\nWhich of these is a rational expression?",
+choices: [
+{ text: "(x + 1) / (x - 2)", correct: true },
+{ text: "√x + 3", correct: false },
+{ text: "x² + 5", correct: false }
+]
+},
+{
+text: "LEVEL 2 — EVALUATING (PLUG IT IN, NO THINKING).\n\nTo evaluate a rational expression, you replace x with a number. Example: (x + 1)/(x - 2) when x = 3.\n\nWhat do you get?",
+choices: [
+</html>
