@@ -5,205 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rational Expressions Adventure 🍎</title>
 <style>
-/* ---------------- BASE STYLES ---------------- */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: url('red.jpg') no-repeat center center fixed; /* CHANGE THIS URL */
-    background-size: cover;
-    color: #660000;
-}
-
-h1, h2, h3 {
-    text-align: center;
-}
-
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background: rgba(139,0,0,0.8);
-    border-radius: 15px;
-}
-
-/* ---------------- LESSON SECTIONS ---------------- */
-.lesson-section {
-    background: rgba(255,248,240,0.9);
-    border: 2px solid #f1d9c1;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px 0;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-}
-.lesson-section:hover { transform: scale(1.02); }
-
-.tip {
-    background: #ffe6cc;
-    border-left: 5px solid #ff9933;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    font-style: italic;
-    animation: floatTip 2s infinite alternate;
-}
-@keyframes floatTip { 0%{transform:translateY(0px);}100%{transform:translateY(-5px);} }
-
-.animation-area {
-    min-height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-}
-.apple {
-    width: 40px;
-    height: 40px;
-    background: red;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    margin: 0 5px;
-    animation: bounce 0.6s ease infinite alternate;
-}
-@keyframes bounce { 0%{transform:translateY(0);}100%{transform:translateY(-10px);} }
-
-/* ---------------- QUIZ & DRAG ---------------- */
-.quiz, .drag-exercise {
-    margin-top: 15px;
-    padding: 15px;
-    background: #fff3e6;
-    border-radius: 10px;
-    border: 2px dashed #f1d9c1;
-}
-.quiz button, .dropzone {
-    background: #f1d9c1;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.quiz button:hover, .dropzone:hover { background: #ffcc99; }
-.feedback { margin-top: 10px; font-weight: bold; }
-
-/* DRAG ITEMS */
-.draggable {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background: #fff0e6;
-    border-radius: 8px;
-    cursor: grab;
-}
-
-/* DROP ZONE */
-.dropzone {
-    min-width: 100px;
-    min-height: 40px;
-    border: 2px dashed #f1d9c1;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ---------------- FRACTIONS ---------------- */
-.fraction {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0 5px;
-}
-.fraction > .numerator {
-    display: block;
-    border-bottom: 2px solid #5a3e2b;
-    padding: 0 5px;
-}
-.fraction > .denominator {
-    display: block;
-    padding: 0 5px;
-}
-
-/* ---------------- ANIMATIONS ---------------- */
-.sparkle {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: gold;
-    border-radius: 50%;
-    animation: sparkleAnim 0.5s ease forwards;
-}
-@keyframes sparkleAnim {0%{transform:scale(0);opacity:1;}100%{transform:scale(1.5);opacity:0;}}
-.wrong-animation {animation: unravel 0.8s forwards;}
-@keyframes unravel {0%{transform:rotate(0deg);opacity:1;}100%{transform:rotate(360deg);opacity:0;}}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .expression { font-size: 1.2em; }
-    .quiz button, .dropzone { padding: 8px 12px; margin: 3px; }
-}
+body {margin:0;padding:0;font-family:'Comic Sans MS', cursive, sans-serif;background:url('your-background.jpg') no-repeat center center fixed;background-size:cover;color:#660000;}
+h1,h2,h3{text-align:center;}
+.container{max-width:900px;margin:0 auto;padding:20px;background:rgba(255,248,240,0.85);border-radius:15px;}
+.lesson-section{background:rgba(255,248,240,0.9);border:2px solid #f1d9c1;border-radius:15px;padding:20px;margin:20px 0;position:relative;box-shadow:0 5px 15px rgba(0,0,0,0.05);transition: transform 0.3s;}
+.lesson-section:hover{transform:scale(1.02);}
+.tip{background:#ffe6cc;border-left:5px solid #ff9933;padding:10px;margin:10px 0;border-radius:8px;font-style:italic;animation:floatTip 2s infinite alternate;}
+@keyframes floatTip{0%{transform:translateY(0px);}100%{transform:translateY(-5px);}}
+.animation-area{min-height:100px;display:flex;justify-content:center;align-items:center;margin:10px 0;}
+.apple{width:40px;height:40px;background:red;border-radius:50%;display:inline-block;position:relative;margin:0 5px;animation:bounce 0.6s ease infinite alternate;}
+@keyframes bounce{0%{transform:translateY(0);}100%{transform:translateY(-10px);}}
+.quiz,.drag-exercise{margin-top:15px;padding:15px;background:#fff3e6;border-radius:10px;border:2px dashed #f1d9c1;}
+.quiz button,.dropzone{background:#f1d9c1;border:none;padding:10px 15px;margin:5px;border-radius:10px;cursor:pointer;transition:0.3s;}
+.quiz button:hover,.dropzone:hover{background:#ffcc99;}
+.feedback{margin-top:10px;font-weight:bold;}
+.draggable{display:inline-block;padding:5px 10px;margin:5px;background:#fff0e6;border-radius:8px;cursor:grab;}
+.dropzone{min-width:100px;min-height:40px;border:2px dashed #f1d9c1;display:inline-flex;justify-content:center;align-items:center;}
+.fraction{display:inline-block;text-align:center;vertical-align:middle;margin:0 5px;}
+.fraction>.numerator{display:block;border-bottom:2px solid #660000;padding:0 5px;}
+.fraction>.denominator{display:block;padding:0 5px;}
+.sparkle{position:absolute;width:20px;height:20px;background:gold;border-radius:50%;animation:sparkleAnim 0.5s ease forwards;}
+@keyframes sparkleAnim{0%{transform:scale(0);opacity:1;}100%{transform:scale(1.5);opacity:0;}}
+.wrong-animation{animation:unravel 0.8s forwards;}
+@keyframes unravel{0%{transform:rotate(0deg);opacity:1;}100%{transform:rotate(360deg);opacity:0;}}
+@media(max-width:600px){.expression{font-size:1.2em;}.quiz button,.dropzone{padding:8px 12px;margin:3px;}}
 </style>
 </head>
 <body>
 <div class="container">
-<h1>🍎 Rational Expressions Adventure 🍏</h1>
+<h1>🍎 Welcome to the Orchard! 🍏</h1>
+<p>Step inside our cozy orchard to learn rational expressions with pony magic and apples! 🌸</p>
 
 <!-- --------- Lesson 0: Factoring Polynomials --------- -->
 <div class="lesson-section">
 <h2>Lesson 0: Factoring Polynomials 🍎</h2>
 <p>Before simplifying rational expressions, let's learn how to factor polynomials!</p>
-
-<h3>1. Greatest Common Factor (GCF)</h3>
-<p>Example: 6x² + 9x</p>
-<div class="drag-exercise">
-<div class="draggable" draggable="true" id="gcf1">3x</div>
-<div class="draggable" draggable="true" id="gcf2">6</div>
-<div class="dropzone" id="dropGCF">Drop the GCF here</div>
-</div>
-<div class="feedback" id="feedbackGCF"></div>
-<div class="tip">Pony Tip: The GCF is the largest factor shared by all terms!</div>
-
-<h3>2. Trinomial Factoring</h3>
-<p>Example: x² + 5x + 6</p>
-<div class="drag-exercise">
-<div class="draggable" draggable="true" id="tri1">2</div>
-<div class="draggable" draggable="true" id="tri2">3</div>
-<div class="dropzone" id="dropTri1">First factor</div>
-<div class="dropzone" id="dropTri2">Second factor</div>
-</div>
-<div class="feedback" id="feedbackTri"></div>
-<div class="tip">Pony Tip: Pick numbers multiplying to 6, adding to 5!</div>
-
-<h3>3. Difference of Squares</h3>
-<p>Example: <span class="fraction"><span class="numerator">x² - 9</span><span class="denominator">1</span></span></p>
-<div class="drag-exercise">
-<div class="draggable" draggable="true" id="diff1">x-3</div>
-<div class="draggable" draggable="true" id="diff2">x+3</div>
-<div class="dropzone" id="dropDiff1">First factor</div>
-<div class="dropzone" id="dropDiff2">Second factor</div>
-</div>
-<div class="feedback" id="feedbackDiff"></div>
-<div class="tip">Pony Tip: a² - b² = (a-b)(a+b)!</div>
-
-<h3>4. Perfect Square Trinomial</h3>
-<p>Example: <span class="fraction"><span class="numerator">x² + 6x + 9</span><span class="denominator">1</span></span></p>
-<div class="drag-exercise">
-<div class="draggable" draggable="true" id="ps1">x+3</div>
-<div class="dropzone" id="dropPS1">Factor here</div>
-</div>
-<div class="feedback" id="feedbackPS"></div>
-<div class="tip">Pony Tip: Recognize squares: (x+3)²!</div>
-
-<p>Mini-Quiz: Which method would you use to factor x² + 10x + 25?</p>
+<!-- Mini-Quiz for factoring -->
+<p>Mini-Quiz: Factor x² + 10x + 25</p>
 <div class="quiz">
-<button onclick="checkAnswer('Perfect Square', 'factor')">Perfect Square Trinomial</button>
-<button onclick="checkAnswer('GCF', 'factor')">GCF</button>
-<button onclick="checkAnswer('Difference of Squares', 'factor')">Difference of Squares</button>
+<button onclick="checkAnswer('Perfect Square', 'quizFactor')">Perfect Square Trinomial</button>
+<button onclick="checkAnswer('GCF', 'quizFactor')">GCF</button>
+<button onclick="checkAnswer('Difference of Squares', 'quizFactor')">Difference of Squares</button>
 </div>
-<div class="feedback" id="quizFeedbackFactor"></div>
+<div class="feedback" id="quizFactor"></div>
+<div class="tip">Pony Tip: Recognize squares! 🍏</div>
 </div>
 
 <!-- --------- Lesson 1: Evaluating Rational Expressions --------- -->
@@ -215,434 +60,110 @@ h1, h2, h3 {
 <li>Cancel common factor: (x-1)/(x-1) = 1</li>
 <li>Answer: x + 1</li>
 </ol>
-<div class="tip">Pony Tip: Only cancel factors, not terms added/subtracted!</div>
-
-<div class="drag-exercise">
-<div class="draggable" draggable="true" id="drag1">x-1</div>
-<div class="draggable" draggable="true" id="drag2">x+1</div>
-<div class="dropzone" id="dropEval">Drop the factor to cancel</div>
-</div>
-<div class="feedback" id="feedbackEval"></div>
-
 <p>Mini-Quiz: Evaluate <span class="fraction"><span class="numerator">x² - 9</span><span class="denominator">x - 3</span></span> when x=4</p>
 <div class="quiz">
-<button onclick="checkAnswer(7, 'eval')">7</button>
-<button onclick="checkAnswer(5, 'eval')">5</button>
-<button onclick="checkAnswer(8, 'eval')">8</button>
+<button onclick="checkAnswer(7,'quizEval')">7</button>
+<button onclick="checkAnswer(5,'quizEval')">5</button>
+<button onclick="checkAnswer(8,'quizEval')">8</button>
 </div>
-<div class="feedback" id="quizFeedbackEval"></div>
+<div class="feedback" id="quizEval"></div>
+<div class="tip">Pony Tip: Only cancel factors, not terms! 🧶</div>
 </div>
 
-<!-- You would continue Lessons 2–5 similarly, using fractions for all rational expressions and preserving spaces/signs -->
-
-<script>
-// ----------------- GENERAL QUIZ LOGIC -----------------
-function checkAnswer(answer, quizID) {
-    let feedback = document.getElementById('quizFeedback'+quizID.charAt(0).toUpperCase()+quizID.slice(1));
-    let correct;
-    switch(quizID) {
-        case 'eval': correct=7; break;
-        case 'factor': correct='Perfect Square'; break;
-        // Add other quiz IDs and correct answers here
-    }
-    if(answer==correct){
-        feedback.innerHTML="Correct! 🍏✨";
-        feedback.style.color="green";
-        createSparkle();
-    } else {
-        feedback.innerHTML="Oops! Try again 🧶";
-        feedback.style.color="red";
-        createUnravel();
-    }
-}
-
-// ----------------- SPARKLE & UNRAVEL -----------------
-function createSparkle() {
-    const sparkle = document.createElement('div');
-    sparkle.classList.add('sparkle');
-    document.body.appendChild(sparkle);
-    sparkle.style.left = Math.random()*window.innerWidth+'px';
-    sparkle.style.top = Math.random()*window.innerHeight+'px';
-    setTimeout(()=>{sparkle.remove();},600);
-}
-
-function createUnravel() {
-    const unravel = document.createElement('div');
-    unravel.classList.add('wrong-animation');
-    document.body.appendChild(unravel);
-    setTimeout(()=>{unravel.remove();},800);
-}
-
-// ----------------- DRAG AND DROP -----------------
-const draggables = document.querySelectorAll('.draggable');
-const dropzones = document.querySelectorAll('.dropzone');
-
-draggables.forEach(drag => {
-    drag.addEventListener('dragstart', e => {
-        e.dataTransfer.setData('text', drag.id);
-    });
-});
-
-dropzones.forEach(zone => {
-    zone.addEventListener('dragover', e => e.preventDefault());
-    zone.addEventListener('drop', e => {
-        e.preventDefault();
-        const id = e.dataTransfer.getData('text');
-        const dragged = document.getElementById(id);
-        zone.innerHTML = dragged.innerText;
-        zone.style.backgroundColor = '#ccffcc';
-        createSparkle();
-        const feedbackId = 'feedback'+zone.id.charAt(0).toUpperCase()+zone.id.slice(1);
-        const feedback = document.getElementById(feedbackId);
-        feedback.innerHTML="Good job! 🍎";
-        feedback.style.color="green";
-    });
-});
-</script>
-</body>
-</html>
-    margin: 20px 0;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-}
-
-.lesson-section:hover {
-    transform: scale(1.02);
-}
-
-.tip {
-    background: #ffe6cc;
-    border-left: 5px solid #ff9933;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    font-style: italic;
-    animation: floatTip 2s infinite alternate;
-}
-
-@keyframes floatTip {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-5px); }
-}
-
-.animation-area {
-    min-height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-}
-
-.apple {
-    width: 40px;
-    height: 40px;
-    background: red;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    margin: 0 5px;
-    animation: bounce 0.6s ease infinite alternate;
-}
-
-@keyframes bounce {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
-}
-
-/* ---- QUIZ & DRAG-AND-DROP ---- */
-.quiz, .drag-exercise {
-    margin-top: 15px;
-    padding: 15px;
-    background: #fff3e6;
-    border-radius: 10px;
-    border: 2px dashed #f1d9c1;
-}
-
-.quiz button, .dropzone {
-    background: #f1d9c1;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.quiz button:hover, .dropzone:hover {
-    background: #ffcc99;
-}
-
-.feedback {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-/* DRAG ITEMS */
-.draggable {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background: #fff0e6;
-    border-radius: 8px;
-    cursor: grab;
-}
-
-/* DROP ZONE */
-.dropzone {
-    min-width: 100px;
-    min-height: 40px;
-    border: 2px dashed #f1d9c1;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ---- FRACTIONS ---- */
-.fraction {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0 5px;
-}
-
-.fraction > .numerator {
-    display: block;
-    border-bottom: 2px solid #5a3e2b;
-    padding: 0 5px;
-}
-
-.fraction > .denominator {
-    display: block;
-    padding: 0 5px;
-}
-
-/* RATIONAL EXPRESSION DISPLAY */
-.expression {
-    font-size: 1.5em;
-    margin: 10px 0;
-    padding: 10px;
-    background: #fff0e6;
-    border-radius: 10px;
-    text-align: center;
-    display: inline-block;
-    min-width: 150px;
-}
-
-.highlight {
-    background-color: #ffff99;
-    transition: 0.5s;
-}
-
-.sparkle {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: gold;
-    border-radius: 50%;
-    animation: sparkleAnim 0.5s ease forwards;
-}
-
-@keyframes sparkleAnim {
-    0% { transform: scale(0); opacity: 1; }
-    100% { transform: scale(1.5); opacity: 0; }
-}
-
-.wrong-animation {
-    animation: unravel 0.8s forwards;
-}
-
-@keyframes unravel {
-    0% { transform: rotate(0deg); opacity: 1; }
-    100% { transform: rotate(360deg); opacity: 0; }
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .expression {
-        font-size: 1.2em;
-    }
-
-    .quiz button, .dropzone {
-        padding: 8px 12px;
-        margin: 3px;
-    }
-}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>🍎 Rational Expressions Adventure 🍏</h1>
-
-<!-- INTRO -->
+<!-- --------- Lesson 2: Simplifying Rational Expressions --------- -->
 <div class="lesson-section">
-<h2>Welcome to the Orchard of Math!</h2>
-<p>Hi there! I'm Applejack, and today we’ll explore <strong>rational expressions</strong> in a cozy, interactive way. 🍎</p>
-<div class="tip">Pony Tip: Rational expressions are fractions with polynomials in numerator and denominator!</div>
-</div>
-
-    <div class="lesson-section">
-<h2>Lesson 0: Factoring Polynomials 🍎</h2>
-<p>Before we simplify rational expressions, we need to know how to factor polynomials!</p>
-
-<!-- Method 1: Greatest Common Factor -->
-<h3>1. Greatest Common Factor (GCF)</h3>
-<p>Example: 6x² + 9x</p>
-<p>Factor out the GCF:</p>
-<div class="drag-exercise">
-<div class="draggable" draggable="true" id="gcf1">3x</div>
-<div class="draggable" draggable="true" id="gcf2">6</div>
-<div class="dropzone" id="dropGCF">Drop the GCF here</div>
-</div>
-<div class="feedback" id="feedbackGCF"></div>
-<div class="tip">Pony Tip: The GCF is the largest factor shared by all terms!</div>
-
-<!-- Method 2: Trinomial factoring -->
-<h3>2. Factoring Trinomials</h3>
-<p>Example: x² + 5x + 6</p>
-<p>Choose two numbers that multiply to 6 and add to 5:</p>
-<div class="drag-exercise">
-<div class="draggable" draggable="true" id="tri1">2</div>
-<div class="draggable" draggable="true" id="tri2">3</div>
-<div class="dropzone" id="dropTri1">First factor</div>
-<div class="dropzone" id="dropTri2">Second factor</div>
-</div>
-<div class="feedback" id="feedbackTri"></div>
-<div class="tip">Pony Tip: Always check by multiplying the factors back together!</div>
-
-<!-- Method 3: Difference of squares -->
-<h3>3. Difference of Squares</h3>
-<p>Example: x² - 9 = ?</p>
-<p>Drag the correct factors:</p>
-<div class="drag-exercise">
-<div class="draggable" draggable="true" id="diff1">x-3</div>
-<div class="draggable" draggable="true" id="diff2">x+3</div>
-<div class="dropzone" id="dropDiff1">First factor</div>
-<div class="dropzone" id="dropDiff2">Second factor</div>
-</div>
-<div class="feedback" id="feedbackDiff"></div>
-<div class="tip">Pony Tip: Remember, a² - b² = (a-b)(a+b)!</div>
-
-<!-- Mini-Quiz -->
-<p>Mini-Quiz: Which method would you use to factor x² + 10x + 25?</p>
-<div class="quiz">
-<button onclick="checkAnswer('Perfect Square', 'factor')">Perfect Square Trinomial</button>
-<button onclick="checkAnswer('GCF', 'factor')">GCF</button>
-<button onclick="checkAnswer('Difference of Squares', 'factor')">Difference of Squares</button>
-</div>
-<div class="feedback" id="quizFeedbackFactor"></div>
-</div>
-
-
-<!-- LESSON 1: Evaluating -->
-<div class="lesson-section">
-<h2>Lesson 1: Evaluating Rational Expressions</h2>
-<p>Example: <span class="fraction"><span class="numerator">x² - 1</span><span class="denominator">x - 1</span></span></p>
+<h2>Lesson 2: Simplifying Rational Expressions 🍎</h2>
+<p>Example: <span class="fraction"><span class="numerator">x² + 5x</span><span class="denominator">x</span></span></p>
 <ol>
-<li>Factor numerator: x²-1 = (x-1)(x+1)</li>
-<li>Cancel common factor: (x-1)/(x-1) = 1</li>
-<li>Answer: x + 1</li>
+<li>Factor numerator: x(x + 5)</li>
+<li>Cancel common factor x</li>
+<li>Answer: x + 5</li>
 </ol>
-<div class="tip">Pony Tip: Only cancel factors, not terms added/subtracted!</div>
-
-<!-- DRAG AND DROP EXERCISE -->
-<p>Drag the correct factor to cancel:</p>
-<div class="drag-exercise">
-<div class="draggable" draggable="true" id="drag1">x-1</div>
-<div class="draggable" draggable="true" id="drag2">x+1</div>
-<div class="dropzone" id="dropEval">Drop here</div>
-</div>
-<div class="feedback" id="feedbackEval"></div>
-
-<!-- MINI QUIZ -->
-<p>Mini-Quiz: Evaluate <span class="fraction"><span class="numerator">x² - 9</span><span class="denominator">x - 3</span></span> when x=4</p>
+<p>Mini-Quiz: Simplify <span class="fraction"><span class="numerator">x² - 4x</span><span class="denominator">2x</span></span></p>
 <div class="quiz">
-<button onclick="checkAnswer(7, 'eval')">7</button>
-<button onclick="checkAnswer(5, 'eval')">5</button>
-<button onclick="checkAnswer(8, 'eval')">8</button>
+<button onclick="checkAnswer('x-2','quizSimplify')">x-2</button>
+<button onclick="checkAnswer('x+2','quizSimplify')">x+2</button>
+<button onclick="checkAnswer('2x','quizSimplify')">2x</button>
 </div>
-<div class="feedback" id="quizFeedbackEval"></div>
+<div class="feedback" id="quizSimplify"></div>
+<div class="tip">Pony Tip: Factor out the GCF first! 🌸</div>
 </div>
 
-<!-- You would replicate similar updates for all lessons -->
-<!-- LESSON 2: Simplifying -->
+<!-- --------- Lesson 3: Adding & Subtracting Rational Expressions --------- -->
 <div class="lesson-section">
-<h2>Lesson 2: Simplifying Rational Expressions</h2>
-<p>Simplify: <span class="fraction"><span class="numerator">x² - 9</span><span class="denominator">x + 3</span></span></p>
+<h2>Lesson 3: Adding & Subtracting Rational Expressions 🍏</h2>
+<p>Example: <span class="fraction"><span class="numerator">1</span><span class="denominator">x</span></span> + <span class="fraction"><span class="numerator">2</span><span class="denominator">x</span></span></p>
 <ol>
-<li>Factor numerator: x²-9=(x-3)(x+3)</li>
-<li>Cancel common factor: (x+3)/(x+3)=1</li>
-<li>Answer: x-3</li>
+<li>LCD is x</li>
+<li>Add numerators: 1 + 2 = 3</li>
+<li>Answer: <span class="fraction"><span class="numerator">3</span><span class="denominator">x</span></span></li>
 </ol>
-<div class="tip">Pony Tip: Always factor first before cancelling!</div>
+<p>Mini-Quiz: Add <span class="fraction"><span class="numerator">3</span><span class="denominator">y</span></span> + <span class="fraction"><span class="numerator">5</span><span class="denominator">y</span></span></p>
+<div class="quiz">
+<button onclick="checkAnswer('8/y','quizAdd')">8/y</button>
+<button onclick="checkAnswer('15/y','quizAdd')">15/y</button>
+<button onclick="checkAnswer('3/5y','quizAdd')">3/5y</button>
+</div>
+<div class="feedback" id="quizAdd"></div>
+<div class="tip">Pony Tip: Rewrite each fraction with the LCD first! 🐴</div>
 </div>
 
-<!-- Continue lessons 3–5 similarly, replacing every fraction with .fraction structure -->
+<!-- --------- Lesson 4: Multiplying & Dividing Rational Expressions --------- -->
+<div class="lesson-section">
+<h2>Lesson 4: Multiplying & Dividing Rational Expressions 🍎</h2>
+<p>Example Multiplication: <span class="fraction"><span class="numerator">x</span><span class="denominator">x+1</span></span> × <span class="fraction"><span class="numerator">x+1</span><span class="denominator">x+2</span></span></p>
+<ol>
+<li>Multiply numerators: x(x+1)</li>
+<li>Multiply denominators: (x+1)(x+2)</li>
+<li>Cancel common factor (x+1)</li>
+<li>Answer: <span class="fraction"><span class="numerator">x</span><span class="denominator">x+2</span></span></li>
+</ol>
+<p>Mini-Quiz: Multiply <span class="fraction"><span class="numerator">2</span><span class="denominator">x</span></span> × <span class="fraction"><span class="numerator">x</span><span class="denominator">3</span></span></p>
+<div class="quiz">
+<button onclick="checkAnswer('2x²/3','quizMult')">2x²/3</button>
+<button onclick="checkAnswer('5x/3','quizMult')">5x/3</button>
+<button onclick="checkAnswer('2x/3','quizMult')">2x/3</button>
+</div>
+<div class="feedback" id="quizMult"></div>
+<div class="tip">Pony Tip: Multiply across numerators and denominators! 🌸</div>
+</div>
 
+<!-- --------- Pony Tips Recap --------- -->
+<div class="lesson-section">
+<h2>Pony Tips Recap 🐴</h2>
+<ul>
+<li>Always factor first! 🍏</li>
+<li>Cancel only factors, not terms. 🧶</li>
+<li>Use the LCD for addition/subtraction. 🍎</li>
+<li>Flip & multiply when dividing. 🌸</li>
+<li>Check your work by plugging in numbers! 🐴</li>
+</ul>
 </div>
 
 <script>
-// GENERAL QUIZ LOGIC
-function checkAnswer(answer, quizID) {
-    let feedback = document.getElementById('quizFeedback'+quizID.charAt(0).toUpperCase()+quizID.slice(1));
-    let correct;
-    switch(quizID) {
-        case 'eval': correct=7; break;
-        // Add other quizzes here with correct answers
-    }
-    if(answer==correct){
-        feedback.innerHTML="Correct! 🍏✨";
-        feedback.style.color="green";
-        createSparkle();
-    } else {
-        feedback.innerHTML="Oops! Try again 🧶";
-        feedback.style.color="red";
-        createUnravel();
-    }
+// Sparkle & Unravel
+function createSparkle(){const s=document.createElement('div');s.classList.add('sparkle');document.body.appendChild(s);s.style.left=Math.random()*window.innerWidth+'px';s.style.top=Math.random()*window.innerHeight+'px';setTimeout(()=>s.remove(),600);}
+function createUnravel(){const u=document.createElement('div');u.classList.add('wrong-animation');document.body.appendChild(u);setTimeout(()=>u.remove(),800);}
+
+// Drag and Drop
+const draggables=document.querySelectorAll('.draggable');
+const dropzones=document.querySelectorAll('.dropzone');
+draggables.forEach(d=>{d.addEventListener('dragstart',e=>{e.dataTransfer.setData('text',d.id);});});
+dropzones.forEach(zone=>{zone.addEventListener('dragover',e=>e.preventDefault());zone.addEventListener('drop',e=>{e.preventDefault();const id=e.dataTransfer.getData('text');const dragged=document.getElementById(id);zone.innerHTML=dragged.innerText;zone.style.backgroundColor='#ccffcc';createSparkle();const fbid='feedback'+zone.id.charAt(0).toUpperCase()+zone.id.slice(1);const feedback=document.getElementById(fbid);feedback.innerHTML="Good job! 🍎";feedback.style.color="green";});});
+
+// Quiz Logic
+function checkAnswer(ans,id){
+ let fb=document.getElementById(id);
+ const correct={
+   'quizFactor':'Perfect Square',
+   'quizEval':7,
+   'quizSimplify':'x-2',
+   'quizAdd':'8/y',
+   'quizMult':'2x²/3'
+ };
+ if(ans==correct[id]){fb.innerHTML="Correct! 🍏✨";fb.style.color="green";createSparkle();}
+ else{fb.innerHTML="Oops! Try again 🧶";fb.style.color="red";createUnravel();}
 }
-
-// SPARKLE & UNRAVEL
-function createSparkle() {
-    const sparkle = document.createElement('div');
-    sparkle.classList.add('sparkle');
-    document.body.appendChild(sparkle);
-    sparkle.style.left = Math.random()*window.innerWidth+'px';
-    sparkle.style.top = Math.random()*window.innerHeight+'px';
-    setTimeout(()=>{sparkle.remove();},600);
-}
-
-function createUnravel() {
-    const unravel = document.createElement('div');
-    unravel.classList.add('wrong-animation');
-    document.body.appendChild(unravel);
-    setTimeout(()=>{unravel.remove();},800);
-}
-
-// DRAG AND DROP LOGIC
-const draggables = document.querySelectorAll('.draggable');
-const dropzones = document.querySelectorAll('.dropzone');
-
-draggables.forEach(drag => {
-    drag.addEventListener('dragstart', e => {
-        e.dataTransfer.setData('text', drag.id);
-    });
-});
-
-dropzones.forEach(zone => {
-    zone.addEventListener('dragover', e => e.preventDefault());
-    zone.addEventListener('drop', e => {
-        e.preventDefault();
-        const id = e.dataTransfer.getData('text');
-        const dragged = document.getElementById(id);
-        zone.innerHTML = dragged.innerText;
-        zone.style.backgroundColor = '#ccffcc';
-        createSparkle();
-        const feedbackId = 'feedback'+zone.id.charAt(0).toUpperCase()+zone.id.slice(1);
-        const feedback = document.getElementById(feedbackId);
-        feedback.innerHTML="Good job! 🍎";
-        feedback.style.color="green";
-    });
-});
 </script>
 </body>
 </html>
