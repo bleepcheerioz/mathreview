@@ -2,265 +2,213 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rational Expressions — Interactive Tutor Mode</title>
+  <title>Whimsical Rational Expressions 🍎✨</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
     body {
       margin: 0;
-      font-family: 'Comic Sans MS', 'Courier New', monospace;
-      background: radial-gradient(circle at top, #1a1a2e, #05050a);
-      color: #e6e6eb;
+      font-family: 'Comic Neue', cursive;
+      background-image: url('background.jpg'); /* Replace with any whimsical JPG */
+      background-size: cover;
+      background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
+
     .game {
-      width: 96%;
+      width: 95%;
       max-width: 950px;
-      background: linear-gradient(180deg, #16162a, #0e0e1a);
-      border: 3px solid #6b6bff;
-      border-radius: 22px;
-      padding: 30px;
-      box-shadow: 0 0 55px rgba(107,107,255,0.45);
-      animation: popIn 0.4s ease;
+      background: rgba(255, 245, 250, 0.95);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+      border: 5px dashed #ff9fbf;
     }
-    @keyframes popIn {
-      from { transform: scale(0.96); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
+
     h1 {
       text-align: center;
-      color: #9d9dff;
-      margin-bottom: 4px;
+      color: #ff6fa5;
       font-size: 2.4em;
+      margin-bottom: 0;
     }
+
     h2 {
       text-align: center;
       font-weight: normal;
-      color: #b3b3ff;
-      font-size: 1.05em;
-      margin-top: 0;
+      color: #ff9fbf;
+      margin-top: 6px;
     }
+
     .stage {
-      margin-top: 22px;
-      font-size: 1.15em;
-      line-height: 1.9;
-      white-space: pre-line;
+      margin-top: 24px;
+      font-size: 1.35em;
+      line-height: 1.8;
+      min-height: 220px;
+      text-align: center;
     }
+
     .fraction {
       display: inline-block;
       text-align: center;
-      margin: 14px 0;
-    }
-    .fraction .top {
-      display: block;
-      padding: 6px 14px;
-      border-radius: 10px;
+      margin: 12px;
       cursor: pointer;
     }
-    .fraction .bar {
-      height: 3px;
-      background: #e6e6eb;
-      margin: 4px 0;
-    }
-    .fraction .bottom {
-      display: block;
-      padding: 6px 14px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .highlight {
-      background: rgba(107,107,255,0.35);
-    }
-    .danger {
-      background: rgba(255,80,80,0.45);
-    }
-    .choices button, .start-btn, .next-btn {
-      display: block;
-      width: 100%;
-      margin: 14px 0;
-      padding: 18px;
-      background: #1f1f38;
-      color: #e6e6eb;
-      border: 2px solid #6b6bff;
+
+    .top, .bottom {
+      padding: 8px 16px;
+      background: #fff;
       border-radius: 16px;
+      border: 2px solid #ff9fbf;
+      transition: transform 0.2s;
+    }
+
+    .top:hover, .bottom:hover {
+      transform: scale(1.1);
+      background: #ffe6f0;
+    }
+
+    .bar {
+      height: 5px;
+      background: #ff6fa5;
+      margin: 6px 0;
+      border-radius: 3px;
+    }
+
+    .highlight {
+      background: #fff1a8 !important;
+      animation: bounce 0.4s ease;
+    }
+
+    @keyframes bounce {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 16px;
+      font-size: 1.2em;
+      border-radius: 18px;
+      border: none;
+      background: #ff9fbf;
+      color: #fff;
       cursor: pointer;
+      transition: transform 0.15s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #ff6fa5;
+    }
+
+    .hint {
+      margin-top: 18px;
+      background: #fff;
+      border-left: 6px solid #ff9fbf;
+      padding: 16px;
       font-size: 1.1em;
-      transition: all 0.15s ease;
-    }
-    .choices button:hover, .start-btn:hover, .next-btn:hover {
-      background: #6b6bff;
-      color: #05050a;
-      transform: scale(1.03);
-    }
-    .status {
-      margin-top: 20px;
-      padding: 18px;
-      border-left: 5px solid #6b6bff;
-      background: rgba(107,107,255,0.12);
-      min-height: 2.5em;
-      animation: fadeIn 0.25s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .footer {
-      margin-top: 24px;
       text-align: center;
-      font-size: 0.9em;
-      color: #9999cc;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 22px;
+      font-size: 0.95em;
+      color: #888;
     }
   </style>
 </head>
 <body>
-<div class="game">
-  <h1>Rational Expressions</h1>
-  <h2>Interactive Tutor Mode — tap things, break fear</h2>
+  <div class="game">
+    <h1>🍎 Whimsical Rational Expressions 🍎</h1>
+    <h2>Slow, visual, and interactive!</h2>
 
-  <div id="stage" class="stage"></div>
-  <div id="visual"></div>
-  <div id="choices" class="choices"></div>
-  <div id="status" class="status"></div>
+    <div id="stage" class="stage"></div>
+    <div id="interactive"></div>
+    <div id="hint" class="hint"></div>
+    <button id="nextBtn">Start</button>
 
-  <div class="footer">Click things. Take your time. You are safe here.</div>
-</div>
+    <div class="footer">Learning is fun. Click everything slowly. 🌸</div>
+  </div>
 
-<script>
-let lesson = 0;
-let phase = 0;
+  <script>
+    let step = 0;
 
-const stage = document.getElementById('stage');
-const visual = document.getElementById('visual');
-const choices = document.getElementById('choices');
-const status = document.getElementById('status');
+    const stage = document.getElementById('stage');
+    const interactive = document.getElementById('interactive');
+    const hint = document.getElementById('hint');
+    const nextBtn = document.getElementById('nextBtn');
 
-function intro() {
-  stage.textContent = "WELCOME.\n\nThis will explain rational expressions VERY slowly.\nYou will click parts of examples to learn them.\n\nReady?";
-  visual.innerHTML = "";
-  choices.innerHTML = "";
-  status.textContent = "";
+    const steps = [
+      { text: "x is a box 📦\nIt can hold any number you choose.", hint: "x is NOT a number yet.", interactive: "<div class='top highlight'>x</div>", action: () => {} },
+      { text: "This is a fraction 🍰\nFractions have a TOP and a BOTTOM.", hint: "Click the TOP first.", interactive: `
+        <div class='fraction'>
+          <div id='top' class='top'>x + 1</div>
+          <div class='bar'></div>
+          <div id='bottom' class='bottom'>3</div>
+        </div>
+      `, action: () => {
+        document.getElementById('top').onclick = () => { document.getElementById('top').classList.add('highlight'); hint.textContent = "Nice! That is the TOP. Now click the BOTTOM."; };
+        document.getElementById('bottom').onclick = () => { document.getElementById('bottom').classList.add('highlight'); hint.textContent = "Great! Fractions always have a top and bottom."; };
+      }},
+      { text: "Putting a number into x 🍎\nIf x = 3, click x to put 3 inside the box.", hint: "Click the x to turn it into 3.", interactive: `
+        <div class='fraction'>
+          <div id='replace' class='top'>x + 1</div>
+          <div class='bar'></div>
+          <div class='bottom'>3</div>
+        </div>
+      `, action: () => { document.getElementById('replace').onclick = () => { document.getElementById('replace').textContent='3 + 1'; document.getElementById('replace').classList.add('highlight'); hint.textContent='x became 3! This is called evaluating.'; }; }},
+      { text: "🚫 Dividing by zero\nIf the bottom becomes 0, math breaks.", hint: "Click the bottom to see what happens.", interactive: `
+        <div class='fraction'>
+          <div class='top'>5</div>
+          <div class='bar'></div>
+          <div id='zero' class='bottom'>x − 3</div>
+        </div>
+      `, action: () => { document.getElementById('zero').onclick = () => { document.getElementById('zero').textContent='0'; document.getElementById('zero').classList.add('highlight'); hint.textContent='Oh no! Dividing by 0 is not allowed. x=3 is forbidden.'; }; }},
+      { text: "✨ Simplifying ✨\nClick matching pieces to cancel them.", hint: "Click the top and bottom to simplify.", interactive: `
+        <div class='fraction'>
+          <div id='cancelTop' class='top'>(x − 2)</div>
+          <div class='bar'></div>
+          <div id='cancelBottom' class='bottom'>(x − 2)</div>
+        </div>
+      `, action: () => {
+        document.getElementById('cancelTop').onclick = () => { document.getElementById('cancelTop').classList.add('highlight'); };
+        document.getElementById('cancelBottom').onclick = () => { document.getElementById('cancelBottom').classList.add('highlight'); hint.textContent='They match! They disappear.'; };
+      }},
+      { text: "➕ Adding fractions 🍎\nBottoms must match to add.", hint: "Check the bottoms.", interactive: `
+        <div class='fraction'><div class='top'>1</div><div class='bar'></div><div class='bottom'>x</div></div>
+        <div class='fraction'><div class='top'>1</div><div class='bar'></div><div class='bottom'>x</div></div>
+      `, action: () => { hint.textContent='Tops can now be added because bottoms match.'; }},
+      { text: "✖️ Multiplying fractions\nMultiply tops and bottoms straight across.", hint: "Click to imagine multiplying.", interactive: `
+        <div class='fraction'><div class='top'>x</div><div class='bar'></div><div class='bottom'>2</div></div>
+        <div class='fraction'><div class='top'>3</div><div class='bar'></div><div class='bottom'>x</div></div>
+      `, action: () => {}},
+      { text: "➗ Dividing fractions 🔄\nFlip the second one, then multiply.", hint: "Click to imagine flipping.", interactive: `
+        <div class='fraction'><div class='top'>1</div><div class='bar'></div><div class='bottom'>x</div></div>
+        <div class='fraction'><div class='top'>2</div><div class='bar'></div><div class='bottom'>3</div></div>
+      `, action: () => {}},
+      { text: "🎉 You finished! 🎉\nYou learned all the basics of rational expressions.", hint: "Be proud of yourself! 🌸", interactive: "", action: () => {} }
+    ];
 
-  const btn = document.createElement('button');
-  btn.textContent = '▶ START LEARNING';
-  btn.className = 'start-btn';
-  btn.onclick = () => loadLesson();
-  choices.appendChild(btn);
-}
+    function loadStep() {
+      const s = steps[step];
+      stage.textContent = s.text;
+      hint.textContent = s.hint;
+      interactive.innerHTML = s.interactive;
+      s.action();
+      nextBtn.textContent = step === steps.length - 1 ? 'Finish' : 'Next';
+    }
 
-function loadLesson() {
-  phase = 0;
-  renderLesson();
-}
+    nextBtn.onclick = () => {
+      if (step < steps.length - 1) { step++; loadStep(); }
+    };
 
-function renderLesson() {
-  choices.innerHTML = "";
-  visual.innerHTML = "";
-
-  if (lesson === 0) lessonFractions();
-  if (lesson === 1) lessonEvaluate();
-  if (lesson === 2) lessonUndefined();
-  if (lesson === 3) lessonSimplify();
-}
-
-/* LESSON 1 — FRACTIONS */
-function lessonFractions() {
-  if (phase === 0) {
-    stage.textContent = "LESSON 1 — THIS IS A FRACTION\n\nClick the TOP part.";
-    const frac = buildFraction('x + 1', 'x − 2');
-    frac.top.onclick = () => { frac.top.classList.add('highlight'); phase++; renderLesson(); };
-    visual.appendChild(frac.el);
-    status.textContent = "The top is called the numerator.";
-  } else if (phase === 1) {
-    stage.textContent = "Now click the BOTTOM part.";
-    const frac = buildFraction('x + 1', 'x − 2');
-    frac.bottom.onclick = () => { frac.bottom.classList.add('highlight'); phase++; renderLesson(); };
-    visual.appendChild(frac.el);
-    status.textContent = "The bottom is called the denominator.";
-  } else {
-    stage.textContent = "This whole thing is a rational expression.\nIt's just a fraction with x in it.";
-    status.textContent = "Good. Let’s keep going.";
-    nextLesson();
-  }
-}
-
-/* LESSON 2 — EVALUATE */
-function lessonEvaluate() {
-  if (phase === 0) {
-    stage.textContent = "LESSON 2 — EVALUATING\n\nClick where x = 3 is substituted.";
-    const frac = buildFraction('3 + 1', '3 − 2');
-    frac.top.onclick = frac.bottom.onclick = () => { frac.top.classList.add('highlight'); frac.bottom.classList.add('highlight'); phase++; renderLesson(); };
-    visual.appendChild(frac.el);
-    status.textContent = "Replace x with the number everywhere.";
-  } else {
-    stage.textContent = "4 ÷ 1 = 4";
-    status.textContent = "Evaluating just means plugging in.";
-    nextLesson();
-  }
-}
-
-/* LESSON 3 — UNDEFINED */
-function lessonUndefined() {
-  if (phase === 0) {
-    stage.textContent = "LESSON 3 — UNDEFINED VALUES\n\nClick the denominator.";
-    const frac = buildFraction('x + 5', 'x − 3');
-    frac.bottom.onclick = () => { frac.bottom.classList.add('danger'); phase++; renderLesson(); };
-    visual.appendChild(frac.el);
-    status.textContent = "If this becomes zero, math breaks.";
-  } else {
-    stage.textContent = "When x = 3, the bottom is zero.";
-    status.textContent = "x = 3 is forbidden.";
-    nextLesson();
-  }
-}
-
-/* LESSON 4 — SIMPLIFY */
-function lessonSimplify() {
-  stage.textContent = "LESSON 4 — SIMPLIFYING\n\nMatching parts cancel.";
-  status.textContent = "You're ready to answer questions now.";
-  finish();
-}
-
-function nextLesson() {
-  const btn = document.createElement('button');
-  btn.textContent = 'Next';
-  btn.className = 'next-btn';
-  btn.onclick = () => { lesson++; phase = 0; renderLesson(); };
-  choices.appendChild(btn);
-}
-
-function finish() {
-  choices.innerHTML = '';
-  const btn = document.createElement('button');
-  btn.textContent = 'Finish Tutor Mode';
-  btn.className = 'next-btn';
-  btn.onclick = () => { stage.textContent = 'You survived.\nYou understand the basics.'; visual.innerHTML = ''; status.textContent = 'Genuinely proud of you.'; };
-  choices.appendChild(btn);
-}
-
-function buildFraction(topText, bottomText) {
-  const el = document.createElement('div');
-  el.className = 'fraction';
-
-  const top = document.createElement('div');
-  top.className = 'top';
-  top.textContent = topText;
-
-  const bar = document.createElement('div');
-  bar.className = 'bar';
-
-  const bottom = document.createElement('div');
-  bottom.className = 'bottom';
-  bottom.textContent = bottomText;
-
-  el.appendChild(top);
-  el.appendChild(bar);
-  el.appendChild(bottom);
-
-  return { el, top, bottom };
-}
-
-intro();
-</script>
+    loadStep();
+  </script>
 </body>
 </html>
