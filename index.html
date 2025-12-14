@@ -214,6 +214,59 @@ h1, h2, h3 {
 <div class="tip">Pony Tip: Rational expressions are fractions with polynomials in numerator and denominator!</div>
 </div>
 
+    <div class="lesson-section">
+<h2>Lesson 0: Factoring Polynomials 🍎</h2>
+<p>Before we simplify rational expressions, we need to know how to factor polynomials!</p>
+
+<!-- Method 1: Greatest Common Factor -->
+<h3>1. Greatest Common Factor (GCF)</h3>
+<p>Example: 6x² + 9x</p>
+<p>Factor out the GCF:</p>
+<div class="drag-exercise">
+<div class="draggable" draggable="true" id="gcf1">3x</div>
+<div class="draggable" draggable="true" id="gcf2">6</div>
+<div class="dropzone" id="dropGCF">Drop the GCF here</div>
+</div>
+<div class="feedback" id="feedbackGCF"></div>
+<div class="tip">Pony Tip: The GCF is the largest factor shared by all terms!</div>
+
+<!-- Method 2: Trinomial factoring -->
+<h3>2. Factoring Trinomials</h3>
+<p>Example: x² + 5x + 6</p>
+<p>Choose two numbers that multiply to 6 and add to 5:</p>
+<div class="drag-exercise">
+<div class="draggable" draggable="true" id="tri1">2</div>
+<div class="draggable" draggable="true" id="tri2">3</div>
+<div class="dropzone" id="dropTri1">First factor</div>
+<div class="dropzone" id="dropTri2">Second factor</div>
+</div>
+<div class="feedback" id="feedbackTri"></div>
+<div class="tip">Pony Tip: Always check by multiplying the factors back together!</div>
+
+<!-- Method 3: Difference of squares -->
+<h3>3. Difference of Squares</h3>
+<p>Example: x² - 9 = ?</p>
+<p>Drag the correct factors:</p>
+<div class="drag-exercise">
+<div class="draggable" draggable="true" id="diff1">x-3</div>
+<div class="draggable" draggable="true" id="diff2">x+3</div>
+<div class="dropzone" id="dropDiff1">First factor</div>
+<div class="dropzone" id="dropDiff2">Second factor</div>
+</div>
+<div class="feedback" id="feedbackDiff"></div>
+<div class="tip">Pony Tip: Remember, a² - b² = (a-b)(a+b)!</div>
+
+<!-- Mini-Quiz -->
+<p>Mini-Quiz: Which method would you use to factor x² + 10x + 25?</p>
+<div class="quiz">
+<button onclick="checkAnswer('Perfect Square', 'factor')">Perfect Square Trinomial</button>
+<button onclick="checkAnswer('GCF', 'factor')">GCF</button>
+<button onclick="checkAnswer('Difference of Squares', 'factor')">Difference of Squares</button>
+</div>
+<div class="feedback" id="quizFeedbackFactor"></div>
+</div>
+
+
 <!-- LESSON 1: Evaluating -->
 <div class="lesson-section">
 <h2>Lesson 1: Evaluating Rational Expressions</h2>
